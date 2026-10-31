@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "ValutaTrade: run", "type": "shell", "command": "uv run valutatrade", "problemMatcher": []},
+    {"label": "ValutaTrade: test", "type": "shell", "command": "uv run pytest -q", "group": "test", "problemMatcher": []},
+    {"label": "ValutaTrade: lint", "type": "shell", "command": "uv run ruff check .", "problemMatcher": []},
+    {"label": "ValutaTrade: demo", "type": "shell", "command": "uv run python -m scripts.demo", "problemMatcher": []},
+    {"label": "ValutaTrade: build", "type": "shell", "command": "uv build", "group": "build", "problemMatcher": []}
+  ]
+}
