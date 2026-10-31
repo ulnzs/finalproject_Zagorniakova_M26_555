@@ -45,9 +45,8 @@ class DatabaseManager:
                     if os.name == "nt":
                         import msvcrt
 
-                        if lock.read(1) == b"":
-                            lock.write(b"0")
-                            lock.flush()
+                        # Windows permits a byte-range lock beyond EOF. Do not read
+                        # the locked byte before acquiring it: another process may own it.
                         lock.seek(0)
                         msvcrt.locking(lock.fileno(), msvcrt.LK_LOCK, 1)
                     else:
